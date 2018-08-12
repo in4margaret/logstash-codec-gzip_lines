@@ -29,7 +29,7 @@ class LogStash::Codecs::GzipLines < LogStash::Codecs::Base
 
   public
   def decode(data)
-    @decoder = Zlib::GzipReader.new(data)
+    @decoder = Zlib::GzipReader.read(data)
 
     begin
       @decoder.each_line do |line|
